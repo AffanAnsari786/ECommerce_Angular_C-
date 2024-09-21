@@ -1,0 +1,65 @@
+
+ <div class="searchBox flex items-center justify-center px-4 mb-4">
+    <div class="flex border border-gray-300 rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus-within:scale-105">
+        <input 
+            matInput 
+            type="text" 
+            class="searchText px-4 py-2 w-80 outline-none focus:ring-2 focus:ring-blue-400 transition" 
+            placeholder="Search..." 
+            [(ngModel)]="SearchText"
+        >
+        @if (SearchText) {
+          <button 
+              matSuffix 
+              mat-icon-button 
+              aria-label="Search" 
+              (click)="searchData()" 
+              class="bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 transition duration-300"
+          >
+              Search
+          </button>
+          <button 
+              matSuffix 
+              mat-icon-button 
+              aria-label="Clear" 
+              (click)="resetProducts()" 
+              class="bg-red-600 text-white px-4 py-2 hover:bg-red-700 transition duration-300"
+          >
+              Reset
+          </button>
+        }
+    </div>
+</div>
+
+<div class="flex items-center justify-center">
+    <button class="arrow-left" (click)="prevImage()">&#8249;</button>
+    <img [src]="images[currentIndex]" alt="ProductImg" class="slider-image border-2 border-gray-300 rounded-lg">
+    <button class="arrow-right" (click)="nextImage()">&#8250;</button>
+</div>
+
+<div *ngIf="products.length > 0">
+    <div class="flex flex-wrap gap-6 mx-auto justify-center">   
+
+        @for(prod of products; track prod) {
+            <div class="flex flex-col border-gray-300 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer border-2 gap-2 mt-4 w-64 px-4 rounded-2xl" (click)="viewProduct(prod.id)">
+                <div class="p-2 flex justify-center">
+                    <img [src]="prod.image" alt="" class="image"/>
+                </div>
+                <div class="flex flex-wrap flex-col gap-2 p-2">
+                    <p class="title h-auto">{{prod.title}}</p>
+                    <p><span class="font-bold">Category:</span> {{prod.category | titlecase}}</p>
+                    <p><span class="font-bold">Price:</span><span class="text-xl font-bold text-blue-600"> ₹{{prod.price}}</span></p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div *ngIf="products.length === 0">
+    <div class="flex justify-center my-10">
+        <h4>No Products Found with "{{SearchText}}"</h4>
+
+    </div>
+</div>
+
+

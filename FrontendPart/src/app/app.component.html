@@ -1,0 +1,45 @@
+<div class="bg-gray-100">
+
+  <nav class="bg-white shadow-md px-6 py-4">
+    <div class="container mx-auto flex justify-between items-center">
+      
+      <div class="flex items-center space-x-8">
+       
+        <div class="flex space-x-6">
+          @for(item of router; track item) {
+            <a routerLink="/products" routerLinkActive="active-route" class="flex items-center p-2 transition duration-200 rounded-md hover:scale-105">
+              <p class="text-black font-bold text-lg py-2 px-4 rounded-md shadow-lg transition-transform duration-300 ease-in-out transform hover:bg-orange-300 hover:shadow-xl hover:-translate-y-1">
+                  Affamazon
+              </p>
+          </a>
+ 
+          }
+        </div>
+      </div>
+  
+      <div class="flex items-center space-x-4">
+
+        @if(isLogin) {
+          <button class="bg-red-400 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200" (click)="logout()">Logout</button>
+        } @else {
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200" routerLink="/login">Login</button>
+        }
+        
+
+
+        <div class="relative">
+          <button class="flex items-center focus:outline-none" id="profileMenuButton">
+            <img routerLink="/cart" src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-png-image-download-pngm-2.png" alt="Cart" class="rounded-full w-10 h-10 object-cover">
+            <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">{{count}}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mx-auto px-10 py-4 border-gray-300 rounded-lg shadow-l min-h-screen">
+    <router-outlet></router-outlet>
+</div>
+
+</div>
+

@@ -1,0 +1,19 @@
+# Ignore compiled binaries and temporary files
+bin/
+obj/
+
+# Ignore build artifacts from Visual Studio
+.vs/
+
+# Ignore user-specific settings files (like .suo, .user)
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore publish output
+**/publish/
+**/Published/
+
+# Ignore Visual Studio Code settings
+.vscode/

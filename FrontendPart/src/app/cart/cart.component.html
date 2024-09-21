@@ -1,0 +1,107 @@
+
+@if(allCartProduct.length > 0){
+    <h1 class="cart-title">Shopping Cart</h1>
+    <div class="cart-container">
+        <div>
+            <table class="cart-table">
+                <tbody class="px-4">
+                    <tr class="cart-header">
+                        <th>ITEMS</th>
+                        <th>QUANTITY</th>
+                        <th>PRICE</th>
+                        <th>TOTAL</th>
+                        <th></th>
+                    </tr>
+    
+                    @for(cartProd of allCartProduct; track cartProd) {
+                        <tr class="cart-product-row">
+                            <td class="px-10">
+                                <div class="cart-product-info">
+                                    <div>
+                                        <img alt="" [src]="cartProd.image"/>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">{{cartProd.title}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cart-product-quantity">
+                                <p>1</p>
+                            </td>
+                            <td class="cart-product-price">
+                                <p>Rs. {{cartProd.price}}</p>
+                            </td>
+                            <td class="cart-product-total">
+                                <p>Rs. {{cartProd.price * 1}}</p>
+                            </td>
+
+                            <td>
+                                <button
+                                    (click)="removeCart(cartProd)"
+                                    class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300"
+                                >
+                                    Remove
+                                </button>
+                            </td>
+                            
+                        </tr>
+                    }
+    
+                    <tr class="cart-total-row">
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL</td>
+                        <td>Rs. {{totalPrice}}</td>
+                    </tr>
+
+            
+                </tbody>
+            </table>
+
+            <div class="flex justify-end items-center mt-6 p-4 border-t border-gray-300">
+                <button class="bg-teal-500 text-white font-bold py-2 px-6 rounded-lg 
+                shadow-lg hover:bg-teal-600 transition duration-300 ease-in-out transform 
+                hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-300"
+                (click)="resetcart()">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+   
+    
+}
+@else {
+    
+    @if(ischeckOut){
+
+        <div class="flex justify-center bg-gray-100">
+            <h2 class="text-3xl font-bold text-green-600 shadow-lg p-6 rounded-lg bg-white border border-gray-300">
+                Thank You for Ordering!
+            </h2>
+
+           
+        </div>
+
+        <div class="flex justify-center">
+
+            <button routerLink="/products" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                Back To Home
+            </button>
+        </div>
+        
+    }
+    @else {
+        <div class="flex flex-col items-center justify-center p-8 bg-gray-100 rounded-lg shadow-md">
+            <h4 class="text-red-400 text-xl font-semibold mb-4">Add some products to cart to display.....</h4>
+            <button routerLink="/products" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                Back To Home
+            </button>
+        </div>
+    }
+
+    
+    
+}
+

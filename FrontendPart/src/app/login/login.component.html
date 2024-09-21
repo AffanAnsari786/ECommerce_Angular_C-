@@ -1,0 +1,86 @@
+<div class="flex justify-center bg-gray-100">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+
+        @if(isLogin){
+
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Login</h2>
+            <form (submit)="onLogin($event)" class="space-y-6">
+                <div>
+                    <label for="userName" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input [(ngModel)]="userName" type="text" id="username" name="userName" required
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input [(ngModel)]="password" type="password" id="password" name="password" required
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="text-sm">
+                        <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Forgot your password?</a>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                    Login
+                </button>
+               <div class="text-center mt-4">
+                    <span class="text-sm text-gray-600">Don't have an account? </span>
+                    <a (click)="changeLogin()" class="cursor-pointer text-blue-600 font-medium hover:underline ml-1">Sign Up</a>
+                </div>
+                
+            </form>
+        }
+
+
+        @if(!isLogin){
+                    <!-- Register Form -->
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Register</h2>
+                    <form (submit)="onSignup($event)" class="space-y-6">
+                        <div>
+                            <label for="signUpUserName" class="block text-sm font-medium text-gray-700">Username</label>
+                            <input [(ngModel)]="signUpUserName" type="text" id="signUpUserName" name="signUpUserName" required
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="signUpPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input [(ngModel)]="signUpPassword" type="password" id="signUpPassword" name="signUpPassword" required
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                            <input [(ngModel)]="confirmPassword" type="password" id="confirmPassword" name="confirmPassword" required
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+            
+                        <!-- Register Button -->
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                            Register
+                        </button>
+            
+                        <div class="text-center mt-4">
+                            <span class="text-sm text-gray-600">Already have an account? </span>
+                            <a (click)="changeLogin()" class="cursor-pointer text-blue-600 font-medium hover:underline ml-1">Sign In</a>
+                        </div>
+                    </form>
+            
+        }
+
+        @if (errorMessage) {
+            <div class="mt-4 p-2 bg-red-100 border border-red-400 text-red-700 rounded">
+                Invalid Credential
+            </div>
+        }
+    </div>
+</div>
+
+  
+
+
+
+
+
+
+
+

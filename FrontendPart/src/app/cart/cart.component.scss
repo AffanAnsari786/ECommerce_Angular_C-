@@ -1,0 +1,86 @@
+/* Shopping Cart Container */
+.cart-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Table Styles */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Heading Styles */
+.cart-header th {
+    text-align: left;
+    padding: 2.5rem;
+    background-color: #f7f7f7;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Product Row Styles */
+.cart-product-row {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    // margin: 40px
+}
+
+.cart-product-row img {
+    width: 70px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.cart-product-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.cart-product-info p {
+    margin: 0;
+}
+
+/* Quantity, Price, and Total Cells */
+.cart-product-quantity,
+.cart-product-price,
+.cart-product-total {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Total Row Styles */
+.cart-total-row {
+    font-weight: bold;
+}
+
+.cart-total-row td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Border and Alignment */
+.border-2 {
+    border: 2px solid #ddd;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-middle {
+    align-items: center;
+}
